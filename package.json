@@ -10,6 +10,7 @@
   "author": "Maksym Siroshtan",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^8.52.0",
     "rollup": "^4.1.4"
   }
 }
