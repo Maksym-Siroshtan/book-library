@@ -19,6 +19,34 @@
     }
   }
 
+  class DivComponent {
+    constructor() {
+      this.div = document.createElement("div");
+    }
+
+    render() {
+      return this.div;
+    }
+  }
+
+  class Header extends DivComponent {
+    constructor(appState) {
+      super();
+      this.appState = appState;
+    }
+
+    render() {
+      this.div.innerHTML = "";
+      this.div.classList.add("header");
+      this.div.innerHTML = `
+      <div>
+        <img src="./src/static/logo.svg" alt="Логотип" />
+      </div>
+    `;
+      return this.div;
+    }
+  }
+
   const PATH_SEPARATOR = '.';
   const TARGET = Symbol('target');
   const UNSUBSCRIBE = Symbol('unsubscribe');
@@ -1039,10 +1067,14 @@
 
     render() {
       const main = document.createElement("div");
-      main.innerHTML = `Число книг: ${this.appState.favorites.length}`;
       this.app.innerHTML = "";
       this.app.append(main);
-      this.appState.favorites.push(1);
+      this.renderHeader();
+    }
+
+    renderHeader() {
+      const header = new Header(this.appState).render();
+      this.app.prepend(header);
     }
   }
 
