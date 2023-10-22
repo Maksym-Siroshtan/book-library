@@ -8,7 +8,6 @@ export class Header extends DivComponent {
   }
 
   render() {
-    this.div.innerHTML = "";
     this.div.classList.add("header");
     this.div.innerHTML = `
       <div class="logo">
@@ -26,7 +25,7 @@ export class Header extends DivComponent {
           <img src="./src/static/favorites.svg" alt="Логотип" />
           Избранное
           </a>
-          <span>${this.appState.favorites.length}</span>
+          <span class="menu__counter">${this.appState.favorites.length}</span>
         </li>
       </ul>
     `;
