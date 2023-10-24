@@ -1,0 +1,62 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.card__image {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  min-height: 180px;
+  padding-top: 10px;
+  background: #b8b8b8;
+}
+
+.card__info {
+  display: flex;
+  flex-direction: column;
+  min-height: 110px;
+  padding: 10px;
+  background: var(--black);
+  color: var(--white);
+}
+
+.card__tag {
+  font-size: 11px;
+  font-weight: 300;
+}
+
+.card__title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 105%;
+}
+
+.card__author {
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.card__footer {
+  margin-top: auto;
+  display: flex;
+}
+
+.card__add {
+  width: 36px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid var(--white);
+  background: none;
+  cursor: pointer;
+}
+
+.card__active {
+  background: var(--white);
+}
