@@ -51,10 +51,19 @@ export class MainView extends AbstractView {
     return res.json();
   }
 
+  destroy() {
+    onChange.unsubscribe(this.appState);
+    onChange.unsubscribe(this.state);
+  }
+
   render() {
     const main = document.createElement("div");
+    main.innerHTML = `
+      <h1>Найдено книг - ${this.state.numFound}</h1>
+    `;
     main.append(new Search(this.state).render());
     main.append(new CardList(this.appState, this.state).render());
+    
     this.app.innerHTML = "";
     this.app.append(main);
     this.renderHeader();

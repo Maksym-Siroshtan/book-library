@@ -9,16 +9,24 @@
   display: flex;
   justify-content: center;
   align-items: start;
-  min-height: 180px;
+  overflow: hidden;
+  height: 180px;
   padding-top: 10px;
   background: #b8b8b8;
+}
+
+.card__image img{
+  width: 180px;
+  height: 100%;
+  object-fit:contain;
 }
 
 .card__info {
   display: flex;
   flex-direction: column;
-  min-height: 110px;
+  height: 120px;
   padding: 10px;
+  border-radius: 0 0 8px 8px;
   background: var(--black);
   color: var(--white);
 }

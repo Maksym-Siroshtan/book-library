@@ -17,13 +17,15 @@ export class CardList extends DivComponent {
       return this.div;
     }
 
-    this.div.classList.add("card_list");
-    this.div.innerHTML = `
-      <h1>Найдено книг - ${this.parentState.numFound}</h1>
-    `;
+
+
+    const cardGrid = document.createElement('div');
+    cardGrid.classList.add("card_grid");
+    this.div.append(cardGrid);
+
     for (let card of this.parentState.list) {
-      this.div.append(new Card(this.appState, card).render());
+      cardGrid.append(new Card(this.appState, card).render());
     }
-    return this.div;
+    return cardGrid;
   }
 }
