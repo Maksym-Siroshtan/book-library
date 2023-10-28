@@ -36,6 +36,14 @@
       this.cardState = cardState;
     }
 
+    addToFavorites() {
+      this.appState.favorites.push(this.cardState);
+    }
+
+    removeFromFavorites() {
+      this.appState.favorites = this.appState.favorites.filter((book) => book.key !== this.cardState.key);
+    }
+
     render() {
       const existInFavorites = this.appState.favorites.find(
         (b) => b.key === this.cardState.key
@@ -68,6 +76,16 @@
       </div>
     </div>
     `;
+
+      if (existInFavorites) {
+        this.div
+        .querySelector('button')
+        .addEventListener('click', this.removeFromFavorites.bind(this));
+      } else {
+        this.div
+        .querySelector('button')
+        .addEventListener('click', this.addToFavorites.bind(this));
+      }
       return this.div;
     }
   }
@@ -1191,7 +1209,7 @@
 
     appStateHook(path) {
       if (path === "favorites") {
-        console.log(path);
+        this.render();
       }
     }
 
